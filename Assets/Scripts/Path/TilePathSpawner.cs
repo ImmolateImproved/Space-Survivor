@@ -55,6 +55,8 @@ public class TilePathSpawner : MonoBehaviour
                 {
                     SpawnTile(hexPosition);
                 }
+
+                currentYPos += yPosIncrement;
             }
         }
     }
@@ -62,9 +64,9 @@ public class TilePathSpawner : MonoBehaviour
     private Tile SpawnTile(Vector3 position)
     {
         position.y = currentYPos;
-        currentYPos += yPosIncrement;
-        var tile = Instantiate(tilePrefab, position, Quaternion.identity);
+        var tile = Instantiate(tilePrefab);
 
+        tile.Init(position, tileSize, Vector3.up * currentYPos);
         tiles.Add(tile);
 
         return tile;

@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4527b98dce090fb4ba7ab584c16754f1, type: 3}
   m_Name: FlowFieldGenerator
   m_EditorClassIdentifier: 
-  scale: 0.00125
-  increment: 0.45
+  scale: 0.001

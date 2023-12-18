@@ -108,7 +108,7 @@ public class HexGridBuilder : MonoBehaviour
 
                 StartCoroutine(ReleaseTile(tile.transform));
 
-                tile.Init(position, tileSize, node);
+                tile.Init(position, tileSize, default, node);
 
                 grid.AddTile(node, tile);
             }

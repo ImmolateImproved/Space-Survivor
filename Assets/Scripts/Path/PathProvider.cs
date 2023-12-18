@@ -26,6 +26,8 @@ public class PathProvider : InitializeMonoBeh
         {
             tilePathSpawner.SetPath(path);
         }
+
+        enabled = false;
     }
 
     public override void Init()

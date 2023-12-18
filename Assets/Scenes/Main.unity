@@ -646,6 +646,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PathView
       objectReference: {fileID: 0}
+    - target: {fileID: 2627799056906785245, guid: 2e53fb50938ac1b46aecd9b8c4065281,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5451011788461997664, guid: 2e53fb50938ac1b46aecd9b8c4065281,
         type: 3}
       propertyPath: m_RootOrder
@@ -798,13 +803,29 @@ PrefabInstance:
       objectReference: {fileID: 1311481870}
     - target: {fileID: 3410562261062676156, guid: 75352b92f16b6f9449be0d906156f9a4,
         type: 3}
+      propertyPath: startYPos
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410562261062676156, guid: 75352b92f16b6f9449be0d906156f9a4,
+        type: 3}
+      propertyPath: tilePrefab
+      value: 
+      objectReference: {fileID: 1493946520192056446, guid: 1d9e3a3e49db9d741a86d792aa016a25,
+        type: 3}
+    - target: {fileID: 3410562261062676156, guid: 75352b92f16b6f9449be0d906156f9a4,
+        type: 3}
       propertyPath: pathProvider
       value: 
       objectReference: {fileID: 1460061526}
     - target: {fileID: 3410562261062676156, guid: 75352b92f16b6f9449be0d906156f9a4,
         type: 3}
       propertyPath: spawnPlatform
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410562261062676156, guid: 75352b92f16b6f9449be0d906156f9a4,
+        type: 3}
+      propertyPath: yPosIncrement
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8078169213973430515, guid: 75352b92f16b6f9449be0d906156f9a4,
         type: 3}
@@ -946,6 +967,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverCraft
       objectReference: {fileID: 0}
+    - target: {fileID: 2648172816443147743, guid: 42207b2f90a9a3b4d94497b880d07e2a,
+        type: 3}
+      propertyPath: fallGravity
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1014,83 +1040,10 @@ MonoBehaviour:
   playerYPos: 5
   view: {fileID: 682794600}
   tilePathSpawner: {fileID: 1123442514}
-  pointsCount: 25
-  moveSpeed: 55
+  pointsCount: 255
+  moveSpeed: 85
   noiseOffset: {x: 0, y: 0, z: 0}
   startPosition: {x: 0, y: 0, z: 0}
---- !u!1001 &1526156913
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 531138236606807574, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_Name
-      value: Tile
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 870650231918896300, guid: 1d9e3a3e49db9d741a86d792aa016a25,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1d9e3a3e49db9d741a86d792aa016a25, type: 3}
 --- !u!1 &1656868855
 GameObject:
   m_ObjectHideFlags: 0
