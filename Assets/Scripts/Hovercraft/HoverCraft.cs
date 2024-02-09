@@ -6,8 +6,8 @@ public class HoverCraft : MonoBehaviour
 
     [Header("Drive settings")]
     [SerializeField] private float driveForce = 17f;
+    [SerializeField] private float enginePower = 100f;
     [SerializeField, Range(0, 1f)] private float slowingVelFactor = 0.99f;
-    [SerializeField] private float angleOfRoll = 30f;
 
     [Header("Hover settings")]
     [SerializeField] private float maxGroundDistance = 5f;
@@ -16,13 +16,14 @@ public class HoverCraft : MonoBehaviour
     [SerializeField] private Spring spring;
 
     [Header("Physics settings")]
-    [SerializeField] private float terminalVelocity = 100f;
+    [SerializeField] private float maxVelocity = 100f;
     [SerializeField] private float hoverGravity = 20f;
     [SerializeField] private float fallGravity = 80f;
     [SerializeField] private float jumpForce;
 
-    [Space()]
+    [Header("View settings")]
     [SerializeField] private Transform shipView;
+    [SerializeField] private float angleOfRoll = 30f;
 
     private Rigidbody rb;
     private FuelTank fuelTank;
@@ -81,13 +82,15 @@ public class HoverCraft : MonoBehaviour
             ApplySpeedBoost(direction * jumpForce);
         }
         jump = false;
+
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxVelocity);
     }
 
     private void Init()
     {
         rb = GetComponent<Rigidbody>();
         fuelTank = GetComponent<FuelTank>();
-        drag = driveForce / terminalVelocity;
+        drag = driveForce / enginePower;
     }
 
     public void ApplySpeedBoost(Vector3 force)
@@ -176,14 +179,14 @@ public class HoverCraft : MonoBehaviour
 
     public void ResetSpeedToTerminal()
     {
-        if (Speed > terminalVelocity)
+        if (Speed > enginePower)
         {
-            Speed = terminalVelocity;
+            Speed = enginePower;
         }
     }
 
     public float GetSpeedPercentage()
     {
-        return rb.velocity.magnitude / terminalVelocity;
+        return rb.velocity.magnitude / enginePower;
     }
 }

@@ -8,7 +8,7 @@ public class HoverCraftUI : MonoBehaviour
 
     private void Update()
     {
-        if (speedText != null)
+        if (speedText)
         {
             speedText.text = ((int)hoverCraft.Speed).ToString();
         }

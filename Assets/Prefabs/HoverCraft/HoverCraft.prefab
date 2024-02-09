@@ -185,8 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 0
   driveForce: 30
+  enginePower: 155
   slowingVelFactor: 1
-  angleOfRoll: 30
   maxGroundDistance: 15
   hoverForce: 30
   groundLayer:
@@ -196,11 +196,12 @@ MonoBehaviour:
     stiffness: 1
     damper: 0.4
     length: 5
-  terminalVelocity: 145
+  maxVelocity: 300
   hoverGravity: 75
   fallGravity: 15
   jumpForce: 35
   shipView: {fileID: 2936297410387403449}
+  angleOfRoll: 30
 --- !u!114 &4315457004798144404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,3 +255,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverCraft: {fileID: 2648172816443147743}
   speedText: {fileID: 0}
+  velocityMagnitudeText: {fileID: 0}
