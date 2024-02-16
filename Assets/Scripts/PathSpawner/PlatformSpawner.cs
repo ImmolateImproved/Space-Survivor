@@ -1,54 +1,96 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Pool;
+using Random = UnityEngine.Random;
 
-public class PlatformSpawner : MonoBehaviour
+public class PlatformSpawner : GameModeInit
 {
     [SerializeField] private PlatformProvider platformProvider;
     [SerializeField] private Vector3 startPostion;
     [SerializeField] private Vector3 startRotation;
+    [SerializeField] private Vector3 scale;
     [SerializeField] private Vector3 spawnOffset;
     private Vector3 currentSpawnPosition;
 
     [Header("Platform horizontal translation")]
-    [SerializeField] private float horizontalTranslation;
+    [SerializeField] private float randomXTranslation;
     [SerializeField, Range(0, 100)] private float translationChance;
 
     [Header("Platform rotation")]
-    [SerializeField] private float rotationAmount;
+    [SerializeField] private float randomRotation;
     [SerializeField, Range(0, 100)] private float rotationChance;
 
     [Space()]
     [SerializeField] private int platformCount;
+    [SerializeField] private int prespawnCount;
+    private int obstacleSpawned;
 
-    [SerializeField] private ObstacleSpawner obstacleSpawner;
+    [SerializeField] private ObstacleSpawnerConfig obstacleSpawner;
+
+    private void OnEnable()
+    {
+        platformProvider.OnDespawn += PlatformProvider_OnDespawn;
+    }
+
+    private void OnDisable()
+    {
+        platformProvider.OnDespawn -= PlatformProvider_OnDespawn;
+    }
 
     private void Start()
     {
-        platformProvider.Init();
+        platformProvider.Init(prespawnCount);
 
         currentSpawnPosition = startPostion;
 
-        SpawnPlatform(false);
+        Spawn(currentSpawnPosition, Quaternion.identity);
 
         for (int i = 0; i < platformCount; i++)
         {
-            SpawnPlatform(true);
+            SpawnWithAutoPosition();
         }
     }
 
-    private void SpawnPlatform(bool changePosition)
+    public override void InitGameMode(GameModeConfig config)
     {
-        var position = changePosition ? GetPlatformPosition() : currentSpawnPosition;
-        var rotation = true ? GetPlatformRotation() : Quaternion.identity;
+        startPostion = config.PlatformSpawner.startPosition;
+        startRotation = config.PlatformSpawner.startRotation;
+        scale = config.PlatformSpawner.scale;
+        spawnOffset = config.PlatformSpawner.spawnOffset;
 
+        randomXTranslation = config.PlatformSpawner.randomXTranslation;
+        translationChance = config.PlatformSpawner.translationChance;
+
+        randomRotation = config.PlatformSpawner.randomRotation;
+        rotationChance = config.PlatformSpawner.rotationChance;
+    }
+
+    private void PlatformProvider_OnDespawn()
+    {
+        SpawnWithAutoPosition();
+    }
+
+    private void Spawn(Vector3 position, Quaternion rotation)
+    {
         currentSpawnPosition += spawnOffset;
 
         var platform = platformProvider.Get();
         platform.transform.SetPositionAndRotation(position, rotation);
+        platform.SetScale(scale);
+        obstacleSpawned++;
 
-        if (obstacleSpawner == null) return;
+        if (obstacleSpawner)
+        {
+            obstacleSpawner.TrySpawn(platform, obstacleSpawned);
+        }
+    }
 
-        obstacleSpawner.Spawn(platform);
+    private void SpawnWithAutoPosition()
+    {
+        var position = GetPlatformPosition();
+        var rotation = GetPlatformRotation();
+
+        Spawn(position, rotation);
     }
 
     private Vector3 GetPlatformPosition()
@@ -69,12 +111,12 @@ public class PlatformSpawner : MonoBehaviour
 
     private bool IsInBounds(float xPos)
     {
-        return Mathf.Abs(xPos) <= horizontalTranslation;
+        return Mathf.Abs(xPos) <= randomXTranslation;
     }
 
     private float MoveHorizontal(float xPosition, float direction)
     {
-        var nextPosition = xPosition + horizontalTranslation * direction;
+        var nextPosition = xPosition + randomXTranslation * direction;
 
         if (IsInBounds(nextPosition))
         {
@@ -82,7 +124,7 @@ public class PlatformSpawner : MonoBehaviour
         }
         else
         {
-            xPosition += horizontalTranslation * -direction;
+            xPosition += randomXTranslation * -direction;
         }
 
         return xPosition;
@@ -96,7 +138,7 @@ public class PlatformSpawner : MonoBehaviour
         if (rotationChanceRnd <= rotationChance)
         {
             var rotationDirection = Mathf.Sign(Random.Range(-1, 1));
-            rotation *= Quaternion.Euler(0, 0, rotationAmount * rotationDirection);
+            rotation *= Quaternion.Euler(0, 0, randomRotation * rotationDirection);
         }
 
         return rotation;
@@ -111,12 +153,25 @@ public class PlatformProvider
 
     public PlatformHolder LastPlatform { get; private set; }
 
-    public void Init()
+    public event Action OnDespawn = delegate { };
+
+    public void Init(int prespawnCount)
     {
         platformPool = new ObjectPool<PlatformHolder>(
             PoolOnCreate,
             PoolOnGet,
             null, null, false, 200, 500);
+
+        for (int i = 0; i < prespawnCount; i++)
+        {
+            var platform = Get();
+            platform.gameObject.SetActive(false);
+            //var platformToSpawn = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
+
+            //var platform = UnityEngine.Object.Instantiate(platformToSpawn);
+            //platform.gameObject.SetActive(false);
+        }
+        LastPlatform = null;
     }
 
     public PlatformHolder Get()
@@ -128,17 +183,22 @@ public class PlatformProvider
     {
         var platformToSpawn = platformPrefabs[Random.Range(0, platformPrefabs.Length)];
 
-        return Object.Instantiate(platformToSpawn);
+        var platform = UnityEngine.Object.Instantiate(platformToSpawn);
+
+        platform.InitFirstSpawn(this);
+
+        return platform;
     }
 
     private void PoolOnGet(PlatformHolder platformHolder)
     {
-        platformHolder.InitForReuse(this);
+        platformHolder.InitForReuse(LastPlatform);
         LastPlatform = platformHolder;
     }
 
-    public void OnDespawn(PlatformHolder platformHolder)
+    public void Despawn(PlatformHolder platformHolder)
     {
         platformPool.Release(platformHolder);
+        //OnDespawn();
     }
 }

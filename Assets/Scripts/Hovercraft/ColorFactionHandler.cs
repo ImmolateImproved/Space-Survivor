@@ -9,7 +9,7 @@ public struct ColorFactionViewMap
 
 public class ColorFactionHandler : MonoBehaviour
 {
-    private HoverCraft hoverCraft;
+    private HoverCraftMono hoverCraft;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private ColorFaction hoverCraftColor;
     [SerializeField] private float slowFactor;
@@ -19,7 +19,7 @@ public class ColorFactionHandler : MonoBehaviour
 
     private void Awake()
     {
-        hoverCraft = GetComponent<HoverCraft>();
+        hoverCraft = GetComponent<HoverCraftMono>();
         ChangeMesh(hoverCraftColor);
     }
 

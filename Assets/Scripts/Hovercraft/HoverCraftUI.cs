@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HoverCraftUI : MonoBehaviour
 {
-    [SerializeField] private HoverCraft hoverCraft;
+    [SerializeField] private HoverCraftMono hoverCraft;
     [SerializeField] private TextMeshProUGUI speedText;
 
     private void Update()

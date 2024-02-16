@@ -4,8 +4,9 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     private Transform myTransform;
+    [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private ColorFaction obstacleColor;
-    [SerializeField] private float speed;
+    private float speed;
 
     public ColorFaction ObstacleColor => obstacleColor;
 
@@ -14,11 +15,23 @@ public class Obstacle : MonoBehaviour
         myTransform = transform;
     }
 
-    public void Init(Vector3 position, float plaformWidth)
+    public void Init(Vector3 position, float width, float plaformWidth, float minSpeed, float maxSpeed)
     {
+        speed = Random.Range(minSpeed, maxSpeed);
+
         myTransform.localPosition = position;
 
+        var scale = myTransform.localScale;
+        scale.x = width;
+        myTransform.localScale = scale;
+
         StartCoroutine(Movement(position, plaformWidth));
+    }
+
+    public void SetColor(ColorToMesh colorToMesh)
+    {
+        obstacleColor = colorToMesh.color;
+        meshFilter.mesh = colorToMesh.mesh;
     }
 
     private IEnumerator Movement(Vector2 offset, float plaformWidth)

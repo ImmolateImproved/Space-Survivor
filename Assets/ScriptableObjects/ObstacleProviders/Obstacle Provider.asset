@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18ea6ec4552dca46b181d4f362d5ed6, type: 3}
+  m_Name: Obstacle Provider
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 4561759755606989524, guid: fbab0ba0dbee77b458e52f9dbca7c82e, type: 3}
+  - {fileID: 4561759755606989524, guid: 8c156b3e34f2f05468ac9a759d41c5df, type: 3}
+  - {fileID: 4561759755606989524, guid: 187cc6be6593ca74da6ecd8453e66331, type: 3}
+  - {fileID: 4561759755606989524, guid: be75ba801029db041a2c6d7a144a1cb3, type: 3}
+  colorToMesh:
+  - color: {fileID: 11400000, guid: b9e3480462f222f4a8b8f540fe28a17a, type: 2}
+    mesh: {fileID: 4300000, guid: 4d895d66f29e6554da6c20e51dab05b1, type: 3}
+  - color: {fileID: 11400000, guid: 873aca0ad9126704387057e6ae7ce232, type: 2}
+    mesh: {fileID: 4300000, guid: 9b4ee342d2ad2c44cbe724d85f705cbd, type: 3}
+  - color: {fileID: 11400000, guid: 6ff558a97524b8f4ebb1216a0ba019ea, type: 2}
+    mesh: {fileID: 4300000, guid: 0b836da1f4aec2741b2c0cb4d5cf6429, type: 3}
+  - color: {fileID: 11400000, guid: aa0954b4d37fb7d42a353357bb23200e, type: 2}
+    mesh: {fileID: 4300000, guid: 6728c94b0c6d6374e9105edf435a5391, type: 3}

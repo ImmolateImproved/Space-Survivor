@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2648172816443147739}
-  - component: {fileID: 1661997629339421035}
+  - component: {fileID: 6774029809753882097}
   - component: {fileID: 2648172816443147740}
   - component: {fileID: 2648172816443147743}
   - component: {fileID: 4315457004798144404}
@@ -122,8 +122,8 @@ Transform:
   - {fileID: 2936297410387403449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1661997629339421035
-MeshCollider:
+--- !u!65 &6774029809753882097
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,10 +140,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7046460113893408108, guid: 329fa5d7816ca8345b749d082d2918c2, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.3845749, z: 1.5406494}
+  m_Center: {x: 0, y: 0.19803047, z: -0.32128906}
 --- !u!54 &2648172816443147740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -255,4 +254,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverCraft: {fileID: 2648172816443147743}
   speedText: {fileID: 0}
-  velocityMagnitudeText: {fileID: 0}

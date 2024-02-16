@@ -1,0 +1,187 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1286547028451096539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -5867033762750403313, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: meshFilter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -5867033762750403313, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: obstacleColor
+      value: 
+      objectReference: {fileID: 11400000, guid: aa0954b4d37fb7d42a353357bb23200e,
+        type: 2}
+    - target: {fileID: 936189799582740817, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 6728c94b0c6d6374e9105edf435a5391, type: 3}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041958084875351806, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_Name
+      value: Obstacle Orange Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320512475443031114, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6ba5cf7b62786f745a74358a3af0e7d2, type: 2}
+    m_RemovedComponents:
+    - {fileID: 8320512475443031114, guid: 16be3963505bcad45b91e8b3a3d80c30, type: 3}
+    - {fileID: 936189799582740817, guid: 16be3963505bcad45b91e8b3a3d80c30, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6857266068632872698}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16be3963505bcad45b91e8b3a3d80c30, type: 3}
+--- !u!4 &44618370845996935 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1244189322233643100, guid: 16be3963505bcad45b91e8b3a3d80c30,
+    type: 3}
+  m_PrefabInstance: {fileID: 1286547028451096539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1819059587606620665
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 44618370845996935}
+    m_Modifications:
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.9724836
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.673429
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5589828516706301204, guid: 915e1ccb3cba67843a5f52be9806236c,
+        type: 3}
+      propertyPath: m_Name
+      value: Portal Orange
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 915e1ccb3cba67843a5f52be9806236c, type: 3}
+--- !u!4 &6857266068632872698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5050644212412583683, guid: 915e1ccb3cba67843a5f52be9806236c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1819059587606620665}
+  m_PrefabAsset: {fileID: 0}

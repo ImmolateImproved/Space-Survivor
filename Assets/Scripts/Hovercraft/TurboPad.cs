@@ -7,7 +7,7 @@ public class TurboPad : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var hoverCraft = other.GetComponent<HoverCraft>();
+        var hoverCraft = other.GetComponent<HoverCraftMono>();
 
         if (hoverCraft)
         {
