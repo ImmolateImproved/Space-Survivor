@@ -45,9 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3284952a1510df458ed70e0caff0e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    speed: 25
-    moveRange: 25
   <PlatformColor>k__BackingField: {fileID: 11400000, guid: b9e3480462f222f4a8b8f540fe28a17a,
     type: 2}
   mainPlatform: {fileID: 9070694293617142695}
@@ -113,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ba5cf7b62786f745a74358a3af0e7d2, type: 2}
+  - {fileID: 2100000, guid: d18f00857c0fa1a4fbfc360ffe9660ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

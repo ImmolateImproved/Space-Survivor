@@ -82,6 +82,9 @@ MonoBehaviour:
   zOffset: 0
   obstacleWidth: 10
   obstacleCount: 1
+  obstacleMinSpeed: 0
+  obstacleMaxSpeed: 0
+  freeObstacleCount: 3
 --- !u!1 &8829115450122988469
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +137,7 @@ MonoBehaviour:
     - {fileID: 2944203293196712425, guid: 689a4305fe37b2f4baf1a37fc6ee2b31, type: 3}
   startPostion: {x: 0, y: 0, z: -130}
   startRotation: {x: 0, y: 0, z: 0}
+  scale: {x: 0, y: 0, z: 0}
   spawnOffset: {x: 0, y: -1, z: 125}
   randomXTranslation: 45
   translationChance: 100

@@ -74,11 +74,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle Orange Rock 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8320512475443031114, guid: 16be3963505bcad45b91e8b3a3d80c30,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6ba5cf7b62786f745a74358a3af0e7d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

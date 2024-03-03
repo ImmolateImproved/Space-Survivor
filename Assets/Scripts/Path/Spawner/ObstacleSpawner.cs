@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ObstacleSpawnerConfig : GameModeInit
+public class ObstacleSpawner : GameModeInit
 {
     [SerializeField] private ObstacleProvider obstacleProvider;
     [SerializeField] private Vector3 startPosition;
@@ -11,6 +11,9 @@ public class ObstacleSpawnerConfig : GameModeInit
 
     [SerializeField] private float obstacleMinSpeed;
     [SerializeField] private float obstacleMaxSpeed;
+
+    [Header("Number of platforms with same obstalce color")]
+    [SerializeField]private int freePlatfromsCount;
 
     public override void InitGameMode(GameModeConfig config)
     {
@@ -25,16 +28,11 @@ public class ObstacleSpawnerConfig : GameModeInit
 
     public void TrySpawn(PlatformHolder parentPlatform, int obstacleSpawned)
     {
-        if (obstacleCount == 0) return;
-
         for (int i = 0; i < obstacleCount; i++)
         {
-            var obstaclePrefab = obstacleProvider.GetRandom();
-
-            if (obstacleSpawned <= 2)
-            {
-                obstaclePrefab = obstacleProvider.GetPrefabByColor(parentPlatform.PlatformColor);
-            }
+            var obstaclePrefab = obstacleSpawned <= freePlatfromsCount
+                ? obstacleProvider.GetPrefabByColor(parentPlatform.PlatformColor)
+                : obstacleProvider.GetRandom();
 
             Spawn(i, parentPlatform, obstaclePrefab);
         }

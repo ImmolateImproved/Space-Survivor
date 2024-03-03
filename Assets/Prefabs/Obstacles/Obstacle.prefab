@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6191e35ab18bc4c46a89231dd58fc1d0, type: 2}
+  - {fileID: 2100000, guid: 6ddc9e61331be4849807735c79cf55c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,5 +120,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 936189799582740817}
   obstacleColor: {fileID: 0}
-  minSpeed: 5
-  maxSpeed: 10

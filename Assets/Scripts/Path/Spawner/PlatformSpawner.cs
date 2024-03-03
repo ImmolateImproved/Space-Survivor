@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
 public class PlatformSpawner : GameModeInit
 {
+    [SerializeField] private WaveRingsManager waveManager;
+    [SerializeField] private CircularPathGenerator pathGenerator;
     [SerializeField] private PlatformProvider platformProvider;
     [SerializeField] private Vector3 startPostion;
     [SerializeField] private Vector3 startRotation;
@@ -12,11 +14,11 @@ public class PlatformSpawner : GameModeInit
     [SerializeField] private Vector3 spawnOffset;
     private Vector3 currentSpawnPosition;
 
-    [Header("Platform horizontal translation")]
+    [Header("Random horizontal translation")]
     [SerializeField] private float randomXTranslation;
     [SerializeField, Range(0, 100)] private float translationChance;
 
-    [Header("Platform rotation")]
+    [Header("Random rotation")]
     [SerializeField] private float randomRotation;
     [SerializeField, Range(0, 100)] private float rotationChance;
 
@@ -25,7 +27,7 @@ public class PlatformSpawner : GameModeInit
     [SerializeField] private int prespawnCount;
     private int obstacleSpawned;
 
-    [SerializeField] private ObstacleSpawnerConfig obstacleSpawner;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
 
     private void OnEnable()
     {
@@ -42,12 +44,13 @@ public class PlatformSpawner : GameModeInit
         platformProvider.Init(prespawnCount);
 
         currentSpawnPosition = startPostion;
+    }
 
-        Spawn(currentSpawnPosition, Quaternion.identity);
-
-        for (int i = 0; i < platformCount; i++)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            SpawnWithAutoPosition();
+            GeneratePath();
         }
     }
 
@@ -63,6 +66,37 @@ public class PlatformSpawner : GameModeInit
 
         randomRotation = config.PlatformSpawner.randomRotation;
         rotationChance = config.PlatformSpawner.rotationChance;
+    }
+
+    private void GeneratePath()
+    {
+        //Spawn(currentSpawnPosition, Quaternion.identity);
+
+        //for (int i = 0; i < platformCount; i++)
+        //{
+        //    SpawnWithAutoPosition();
+        //}
+
+        var path = waveManager.GeneratePath();//pathGenerator.GeneratePath();
+
+        var hoverCraft = GameObject.FindAnyObjectByType<HoverCraftMono>();
+        if (hoverCraft)
+        {
+            var hoverCraftRb = hoverCraft.GetComponent<Rigidbody>();
+
+            var pos = path[0];
+            pos.y = 5;
+            hoverCraftRb.position = pos;
+        }
+
+        for (int i = 0; i < path.Count; i++)
+        {
+            var nextPoint = (i < path.Count - 1) ? path[i + 1] : path[0];
+
+            var direction = nextPoint - path[i];
+            var rotation = Quaternion.LookRotation(direction);
+            Spawn(path[i], rotation);
+        }
     }
 
     private void PlatformProvider_OnDespawn()
@@ -153,7 +187,7 @@ public class PlatformProvider
 
     public PlatformHolder LastPlatform { get; private set; }
 
-    public event Action OnDespawn = delegate { };
+    public event System.Action OnDespawn = delegate { };
 
     public void Init(int prespawnCount)
     {

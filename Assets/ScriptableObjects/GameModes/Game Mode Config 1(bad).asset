@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc6d1642cab8b5c4dbb69c1854a8b7e7, type: 3}
-  m_Name: Game Mode Config 3
+  m_Name: Game Mode Config 1(bad)
   m_EditorClassIdentifier: 
   <PlatformSpawner>k__BackingField:
     startPosition: {x: 0, y: 0, z: -130}
     startRotation: {x: 0, y: 0, z: 0}
-    scale: {x: 35, y: 1, z: 300}
-    spawnOffset: {x: 0, y: -5, z: 255}
-    randomXTranslation: 55
+    scale: {x: 100, y: 1, z: 300}
+    spawnOffset: {x: 0, y: -12, z: 200}
+    randomXTranslation: 75
     translationChance: 100
-    randomRotation: 10
-    rotationChance: 0
+    randomRotation: 5
+    rotationChance: 45
   <ObstacleSpawner>k__BackingField:
-    startPostion: {x: 0, y: 4, z: 25}
+    startPostion: {x: 0, y: 4, z: 15}
     zOffset: 125
-    obstacleWidth: 15
+    obstacleWidth: 20
     obstacleCount: 3
-    obstacleMinSpeed: 25
-    obstacleMaxSpeed: 35
+    obstacleMinSpeed: 50
+    obstacleMaxSpeed: 55
   <Hovercraft>k__BackingField:
     driveForce: 30
     enginePower: 155
-    maxGroundDistance: 15
+    maxGroundDistance: 35
     maxVelocity: 255
-    hoverGravity: 20
+    hoverGravity: 80
     fallGravity: 20
     spring:
       stiffness: 1
