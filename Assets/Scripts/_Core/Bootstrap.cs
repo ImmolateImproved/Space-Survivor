@@ -8,11 +8,9 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private GameModeConfig gameModeConfig;
     [SerializeField] private GameModeConfig[] gameModeConfigs;
 
-    [SerializeField] private GameModeInit[] gameModeInits;
-
-    //[SerializeField] private HoverCraft hoverCraft;
-    //[SerializeField] private PlatformSpawner platformSpawner;
-    //[SerializeField] private ObstacleSpawnerConfig obstacleSpawner;
+    [SerializeField] private HoverCraftMono hoverCraft;
+    [SerializeField] private PlatformSpawner platformSpawner;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
 
     private void Awake()
     {
@@ -24,18 +22,8 @@ public class Bootstrap : MonoBehaviour
             configIndex = (configIndex + 1) % gameModeConfigs.Length;
         }
 
-        foreach (var item in gameModeInits)
-        {
-            item.InitGameMode(gameModeConfig);
-        }
-
-        //hoverCraft.InitGameMode(gameModeConfig);
-        //platformSpawner.InitGameMode(gameModeConfig);
-        //obstacleSpawner.InitGameMode(gameModeConfig);
+        hoverCraft.InitGameMode(gameModeConfig);
+        platformSpawner.InitGameMode(gameModeConfig);
+        obstacleSpawner.InitGameMode(gameModeConfig);
     }
-}
-
-public abstract class GameModeInit : MonoBehaviour
-{
-    public abstract void InitGameMode(GameModeConfig config);
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using Random = UnityEngine.Random;
 
-public class PlatformSpawner : GameModeInit
+public class PlatformSpawner : MonoBehaviour
 {
     [SerializeField] private WaveRingsManager waveManager;
     [SerializeField] private CircularPathGenerator pathGenerator;
@@ -44,17 +44,11 @@ public class PlatformSpawner : GameModeInit
         platformProvider.Init(prespawnCount);
 
         currentSpawnPosition = startPostion;
+
+        GeneratePath();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            GeneratePath();
-        }
-    }
-
-    public override void InitGameMode(GameModeConfig config)
+    public void InitGameMode(GameModeConfig config)
     {
         startPostion = config.PlatformSpawner.startPosition;
         startRotation = config.PlatformSpawner.startRotation;
@@ -70,33 +64,35 @@ public class PlatformSpawner : GameModeInit
 
     private void GeneratePath()
     {
-        //Spawn(currentSpawnPosition, Quaternion.identity);
-
-        //for (int i = 0; i < platformCount; i++)
-        //{
-        //    SpawnWithAutoPosition();
-        //}
-
-        var path = waveManager.GeneratePath();//pathGenerator.GeneratePath();
-
         var hoverCraft = GameObject.FindAnyObjectByType<HoverCraftMono>();
         if (hoverCraft)
         {
             var hoverCraftRb = hoverCraft.GetComponent<Rigidbody>();
 
-            var pos = path[0];
+            var pos = currentSpawnPosition;
             pos.y = 5;
             hoverCraftRb.position = pos;
         }
 
-        for (int i = 0; i < path.Count; i++)
-        {
-            var nextPoint = (i < path.Count - 1) ? path[i + 1] : path[0];
+        Spawn(currentSpawnPosition, Quaternion.identity);
 
-            var direction = nextPoint - path[i];
-            var rotation = Quaternion.LookRotation(direction);
-            Spawn(path[i], rotation);
+        for (int i = 0; i < platformCount; i++)
+        {
+            SpawnWithAutoPosition();
         }
+
+        //var path = pathGenerator.GeneratePath();//waveManager.GeneratePath();
+
+
+
+        //for (int i = 0; i < path.Count; i++)
+        //{
+        //    var nextPoint = (i < path.Count - 1) ? path[i + 1] : path[0];
+
+        //    var direction = nextPoint - path[i];
+        //    var rotation = Quaternion.LookRotation(direction);
+        //    Spawn(path[i], rotation);
+        //}
     }
 
     private void PlatformProvider_OnDespawn()

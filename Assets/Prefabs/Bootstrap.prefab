@@ -45,17 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f464c5159ac4241a58222ae0332a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useRandomConfig: 1
-  gameModeConfig: {fileID: 11400000, guid: 20093597f14c69c4d9cfe21e1e004bc9, type: 2}
+  useRandomConfig: 0
+  gameModeConfig: {fileID: 11400000, guid: aa70512a8b38bb04d999bf97431ed7b9, type: 2}
   gameModeConfigs:
   - {fileID: 11400000, guid: 7f78d66c7ffef204da75728c60647234, type: 2}
   - {fileID: 11400000, guid: 7e51792b08356bc46bf01bb682d14926, type: 2}
   - {fileID: 11400000, guid: d7cba755c63327f45984e42130a77b8a, type: 2}
   - {fileID: 11400000, guid: 20093597f14c69c4d9cfe21e1e004bc9, type: 2}
-  gameModeInits:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  hoverCraft: {fileID: 0}
+  platformSpawner: {fileID: 0}
+  obstacleSpawner: {fileID: 0}
 --- !u!114 &5037688142915147966
 MonoBehaviour:
   m_ObjectHideFlags: 0

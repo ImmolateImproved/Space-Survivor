@@ -407,10 +407,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0709fcf0a009e4096ce3983f455434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringSettings: {fileID: 11400000, guid: 90b0b7b7db9881043ba5642e2a770067, type: 2}
+  ringSettings: {fileID: 11400000, guid: 142bdc3698d11dc4daa46485c21aad91, type: 2}
   lrPrefab: {fileID: 1894105469784903962, guid: 746dbc06a4ffd99498f3f46776ed5fb1,
     type: 3}
-  ringsCount: 3
+  ringsCount: 1
+  additionalRadius: 1
+  additionalRadiusOffset: 0
   pointsCount: 180
   center: {x: 0, y: 0, z: 0}
   baseRadius: 3

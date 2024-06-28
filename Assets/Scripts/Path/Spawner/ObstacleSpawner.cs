@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ObstacleSpawner : GameModeInit
+public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private ObstacleProvider obstacleProvider;
     [SerializeField] private Vector3 startPosition;
@@ -15,7 +15,7 @@ public class ObstacleSpawner : GameModeInit
     [Header("Number of platforms with same obstalce color")]
     [SerializeField]private int freePlatfromsCount;
 
-    public override void InitGameMode(GameModeConfig config)
+    public void InitGameMode(GameModeConfig config)
     {
         startPosition = config.ObstacleSpawner.startPostion;
         zOffset = config.ObstacleSpawner.zOffset;
